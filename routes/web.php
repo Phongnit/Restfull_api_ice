@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\ItemController;
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('items.index');
 });
+
+Route::resource('api/items', ItemController::class)->except(['create', 'edit']);
